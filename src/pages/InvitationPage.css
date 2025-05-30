@@ -210,3 +210,24 @@
   margin-right: 2px;
   object-fit: contain;
 }
+
+.close-button-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.close-button {
+  background-color: #d72638;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #a61c2e;
+}

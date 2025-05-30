@@ -120,6 +120,14 @@ export default function InvitationPage() {
         </div>
         <HeartsRain />
       </section>
+
+            {/* 🔘 Close Button at Bottom */}
+      <div className="close-button-container">
+        <button className="close-button" onClick={() => window.close()}>
+          🙏 Close Invitation
+        </button>
+      </div>
+
     </div>
   );
 }
