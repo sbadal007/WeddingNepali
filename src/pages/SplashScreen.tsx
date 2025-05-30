@@ -9,7 +9,7 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
 
   return (
     <div className="splash-screen">
-      <h1 className="romantic-quote">Two souls, one heart.</h1>
+      <h1 className="romantic-quote">दुई आत्मा, एउटै मुटु।</h1>
     </div>
   );
 }

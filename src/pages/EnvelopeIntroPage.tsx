@@ -31,7 +31,7 @@ export default function EnvelopeIntroPage({
       audioRef.current?.play().catch(() => {});
 
       // Wait for envelope open animation, then move to splash
-      setTimeout(onOpen, 4500);
+      setTimeout(onOpen, 7500);
     }
   };
 
@@ -42,12 +42,12 @@ export default function EnvelopeIntroPage({
         <div className="message-inside">
           {!isOpen && (
             <div className="center-message">
-              📱 Tilt your phone & tap to open this message
+              📱 Tap to open this message
             </div>
           )}
           {isOpen && (
             <div className="invite-message">
-              💌 You are invited to SUDAN and SUSMA wedding celebration!
+              💌 तपाईंलाई सुदन र सुस्माको वैवाहिक समारोहमा हार्दिक आमन्त्रण गर्दछौ!
             </div>
           )}
         </div>
