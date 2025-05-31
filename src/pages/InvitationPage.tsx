@@ -33,7 +33,7 @@ const galleryImages = [
   "/gallery6.jpg",
 ];
 
-export default function InvitationPage() {
+export default function InvitationPage({ goToIntro }: { goToIntro: () => void }) {
   const [isStandaloneBrowser, setIsStandaloneBrowser] = useState(true);
 
   useEffect(() => {
@@ -134,7 +134,7 @@ export default function InvitationPage() {
       {/* 🔘 Close Button (only in standalone browser) */}
       {isStandaloneBrowser && (
         <div className="close-button-container">
-          <button className="close-button" onClick={() => window.close()}>
+          <button onClick={goToIntro}>
             🙏 Close Invitation
           </button>
         </div>
