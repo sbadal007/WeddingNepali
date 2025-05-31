@@ -11,6 +11,7 @@ export default function EnvelopeIntroPage({
 }) {
   const [isTilted, setIsTilted] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
+  const [hasTapped, setHasTapped] = useState(false);
 
   useEffect(() => {
     const handleOrientation = (event: DeviceOrientationEvent) => {
@@ -25,34 +26,34 @@ export default function EnvelopeIntroPage({
 
   const handleTap = () => {
     if (isTilted && !isOpen) {
+      setHasTapped(true);
       setIsOpen(true);
-
-      // Play music immediately
       audioRef.current?.play().catch(() => {});
-
-      // Wait for envelope open animation, then move to splash
-      setTimeout(onOpen, 7500);
+      setTimeout(onOpen, 8500);
     }
   };
 
   return (
     <div className="envelope-wrapper" onClick={handleTap}>
-      <div className={`envelope ${isOpen ? "opened" : ""}`}>
-        <div className="flap" />
-        <div className="message-inside">
-          {!isOpen && (
-            <div className="center-message">
-              📱 Tap to open this message
-            </div>
-          )}
-          {isOpen && (
-            <div className="invite-message">
-              💌 तपाईंलाई सुदन र सुस्माको वैवाहिक समारोहमा हार्दिक आमन्त्रण गर्दछौ!
-            </div>
-          )}
+      {!hasTapped ? (
+         <div className="tap-container">
+          <div className="tap-message">📱 Tap to open</div>
+        <img src="/Ganesh.jpg" alt="Ganesh" className="ganesh-image" />
         </div>
-        {isOpen && <HeartsRain />}
-      </div>
+      ) : (
+        <div className={`envelope ${isOpen ? "opened" : ""}`}>
+          <div className="envelope-content">
+            <img src="/Red-envelop.jpg" alt="Envelope" className="envelope-image" />
+            <div className="invite-text">
+              <br /><br />
+              तपाईंलाई सुदन र सुस्माको<br />
+              वैवाहिक समारोहमा<br />
+              हार्दिक आमन्त्रण गर्दछौ!
+            </div>
+          </div>
+          {isOpen && <HeartsRain />}
+        </div>
+      )}
     </div>
   );
 }
