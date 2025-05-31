@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "./InvitationPage.css";
 import { HeartsRain } from "../components/HeartsRain";
@@ -33,6 +34,14 @@ const galleryImages = [
 ];
 
 export default function InvitationPage() {
+  const [isStandaloneBrowser, setIsStandaloneBrowser] = useState(true);
+
+  useEffect(() => {
+    const ua = navigator.userAgent || navigator.vendor;
+    const isInAppBrowser = /FBAN|FBAV|Instagram|Messenger/i.test(ua);
+    setIsStandaloneBrowser(!isInAppBrowser);
+  }, []);
+
   return (
     <div className="invitation-page">
 
@@ -121,13 +130,16 @@ export default function InvitationPage() {
         <HeartsRain />
       </section>
 
-            {/* 🔘 Close Button at Bottom */}
-      <div className="close-button-container">
-        <button className="close-button" onClick={() => window.close()}>
-          🙏 Close Invitation
-        </button>
-      </div>
-
+      <br />
+      {/* 🔘 Close Button (only in standalone browser) */}
+      {isStandaloneBrowser && (
+        <div className="close-button-container">
+          <button className="close-button" onClick={() => window.close()}>
+            🙏 Close Invitation
+          </button>
+        </div>
+      )}
+      <br /> <br /> <br />
     </div>
   );
 }
