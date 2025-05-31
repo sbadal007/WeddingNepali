@@ -129,8 +129,6 @@ export default function InvitationPage({ goToIntro }: { goToIntro: () => void })
         </div>
         <HeartsRain />
       </section>
-
-      <br />
       {/* 🔘 Close Button (only in standalone browser) */}
       {isStandaloneBrowser && (
         <div className="close-button-container">
